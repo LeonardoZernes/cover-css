@@ -1,0 +1,69 @@
+:root {
+    --ancho: 400px;
+}
+
+body {
+    background: lightblue;
+}
+
+.contenedor {
+    display: inline-flex;
+}
+
+.caratula {
+    width: var(--ancho);
+    height: var(--ancho);
+    background-image: url(../assets/selena_gomez_rare-portada.jpg);
+    background-size: cover;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    position: relative;
+    z-index: 10;
+
+    /* pointer-events: none;  --> con esto evitamos que el objeto caratula
+                                  no se tenga en cuenta para los eventos */
+}
+
+/* .disco:hover{
+    transform: none;
+    transition: ease 0.75s;
+} -- > Esto lo pondríamos con el pointer events, problema: si el disco
+       abandona el puntero, se corta la transición y vuelve */
+
+.caratula:hover + .disco { /* con el + le estamos diciendo que el siguiente
+                              elemento disco tras caratula haga lo siguiente: */
+
+    transform: rotate(90deg);
+    transition: ease 1s;
+}
+
+.disco {
+    width: var(--ancho);
+    height: var(--ancho);
+    background: linear-gradient(45deg, black, white, black);
+    border-radius: 50%;
+    display: flex;
+    min-height: var(--ancho);
+    justify-content: center;
+    align-items: center;
+    transform: translateX(calc(var(--ancho) * (-1)));
+    transition: ease 1s;
+}
+
+.rojo {
+    background: rgb(243, 72, 115);
+    border: 1px solid black;
+    height: 30%;
+    width: 30%;
+    border-radius: 50%;
+    display: flex;
+    min-height: 30%;
+    justify-content: center;
+    align-items: center;
+}
+
+.centro {
+    background: white;
+    height: 10%;
+    width: 10%;
+    border-radius: 50%;
+}
